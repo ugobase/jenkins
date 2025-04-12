@@ -1,31 +1,23 @@
-pipeline{
-    agent{
-          any
-    }
-    stages{
-        stage("Test"){
-            steps{
+pipeline {
+    agent any
+
+    stages {
+        stage("Test") {
+            steps {
                 echo "Hello World"
             }
-            post{
-                always{
+            post {
+                always {
                     echo "========always========"
                 }
-                success{
+                success {
                     echo "An execution was successful"
                 }
-                failure{
+                failure {
                     echo "An execution failed"
                 }
             }
         }
-
-        stage("Build"){
-            steps{
-                sh "ls -ltra"
-            }
-
-            }
-        }
     }
+}
 
